@@ -13,9 +13,9 @@ jobs:
       id-token: write
     strategy:
       matrix:
-        env: ['prod-na']
         deploy: ['vrs', 'vri']
+        env: ['prod-na', 'prod-eur']
+
     steps:
       - run: echo ${{matrix.env}}
       - run: echo ${{matrix.deploy}}
-      
