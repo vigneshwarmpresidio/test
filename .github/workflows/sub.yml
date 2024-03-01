@@ -1,0 +1,23 @@
+name: deploy env deployments
+
+on:
+  workflow_call:
+    inputs:
+      env:
+        required: true
+        type: string
+
+jobs:
+  deploy:
+    permissions:
+      contents: read
+      id-token: write
+    runs-on: ubuntu-latest
+    environment: ${{ inputs.env }}
+    strategy:
+      matrix:
+        include:
+          - region: "primary"
+          - region: "secondary"
+    steps:
+      - run: "echo ${{inputs.env}} : ${{matrix.region}}"  

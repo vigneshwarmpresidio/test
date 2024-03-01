@@ -7,15 +7,16 @@ on:
 
 jobs:
   job1:
-    runs-on: ubuntu-latest
     permissions:
       contents: read
       id-token: write
     strategy:
       matrix:
-        deploy: ['vrs', 'vri']
-        env: ['prod-na', 'prod-eur']
+        include:
+          - environment: 'prod-na'
+          - environment: 'prod-eu'
+    uses: ./.github/workflows/sub.yml
+    secrets: inherit
+    with:
+      env: ${{ matrix.environment }}
 
-    steps:
-      - run: echo ${{matrix.env}}
-      - run: echo ${{matrix.deploy}}
