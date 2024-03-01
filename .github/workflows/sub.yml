@@ -15,6 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.env }}
     strategy:
+      max-parallel: 1
       matrix:
         include:
           - region: "primary"
