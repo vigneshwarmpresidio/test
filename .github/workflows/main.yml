@@ -16,4 +16,4 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 20.8.1
-      - run: yarn semantic-release
+      - run: yarn semantic-release --branches main
