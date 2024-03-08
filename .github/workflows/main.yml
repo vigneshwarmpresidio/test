@@ -7,16 +7,13 @@ on:
 
 jobs:
   job1:
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       id-token: write
-    strategy:
-      matrix:
-        include:
-          - environment: 'prod-na'
-          - environment: 'prod-eu'
-    uses: ./.github/workflows/sub.yml
-    secrets: inherit
-    with:
-      env: ${{ matrix.environment }}
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - run: yarn semantic-release
+
 
