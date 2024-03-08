@@ -17,3 +17,5 @@ jobs:
         with:
           node-version: 20.8.1
       - run: yarn semantic-release --branches main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
