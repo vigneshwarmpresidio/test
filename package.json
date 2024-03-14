@@ -11,5 +11,8 @@
   "license": "ISC",
   "dependencies": {
     "semantic-release": "^23.0.2"
+  },
+  "devDependencies": {
+    "eslint-formatter-github-annotations": "^0.1.0"
   }
 }
