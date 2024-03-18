@@ -13,5 +13,17 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-      - run: yarn semantic-release
+
+      - name: Notify Dynatrace on Build
+        run: |
+          curl --location '${{ inputs.DT_URL }}/api/v2/events/ingest' \
+          --fail-with-body \
+          --header 'Authorization: Api-Token ${{ inputs.DT_TOKEN }}' \
+          --header 'Content-Type: application/json; charset=utf-8' \
+          --data '{
+            "eventType": "CUSTOM_INFO",
+            "title": "info event"
+            "properties": {
+              "test1": "test2"
+              }
+          }'
