@@ -17,9 +17,9 @@ jobs:
 
       - name: Notify Dynatrace on Build
         run: |
-          curl --location '${{ inputs.DT_URL }}/api/v2/events/ingest' \
+          curl --location '${{ secrets.DT_URL }}/api/v2/events/ingest' \
           --fail-with-body \
-          --header 'Authorization: Api-Token ${{ inputs.DT_TOKEN }}' \
+          --header 'Authorization: Api-Token ${{ secrets.DT_TOKEN }}' \
           --header 'Content-Type: application/json; charset=utf-8' \
           --data '{
             "eventType": "CUSTOM_INFO",
