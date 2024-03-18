@@ -17,13 +17,14 @@ jobs:
 
       - name: Notify Dynatrace on Build
         run: |
+
           curl --location '${{ secrets.DT_URL }}/api/v2/events/ingest' \
           --header 'Authorization: Api-Token ${{ secrets.DT_TOKEN }}' \
           --header 'Content-Type: application/json; charset=utf-8' \
           --fail-with-body \
           --data '{
             "eventType": "CUSTOM_INFO",
-            "title": "test event",
+            "title": "Switchboard: DEV Build Version",
             "properties": {
               "app.version":"1.62.1.6"
               }
