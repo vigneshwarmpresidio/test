@@ -24,5 +24,7 @@ jobs:
         run: |
           mkdir deps
           pip install -r test/requirements.txt -t ./deps
+          ls ./deps
           zip -r deps.zip ./deps
+          ls
       
