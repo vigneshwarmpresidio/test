@@ -22,7 +22,7 @@ jobs:
       - name: Build zip files for lambda
         working-directory: python
         run: |
-          ls
-          pip install -r test/requirements.txt -t .
-          zip -r . ./test
+          mkdir deps
+          pip install -r test/requirements.txt -t ./deps
+          zip -r ./deps deps.zip
       
