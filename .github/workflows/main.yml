@@ -14,18 +14,15 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v3
-
-      - name: Notify Dynatrace on Build
+      
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10' 
+      
+      - name: Build zip files for lambda
+        working-directory: python/test
         run: |
-          curl --location '${{ secrets.DT_URL }}/api/v2/events/ingest' \
-              --request POST \
-              --header 'Authorization: Api-Token ${{ secrets.DT_TOKEN }}' \
-              --header 'Content-Type: application/json; charset=utf-8' \
-              --fail-with-body \
-              --data '{
-                "eventType": "CUSTOM_INFO",
-                "title": "Switchboard: DEV Build Version",
-                "properties": {
-                  "app.version":"1.62.1.6"
-                  }
-              }'
+          pip install -r requirements.txt
+          zip -r .
+          ls
+      
