@@ -14,17 +14,19 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v3
-      
-      - uses: actions/setup-python@v5
+
+      - uses: actions/setup-node@v4
         with:
-          python-version: '3.10' 
+          node-version: 21
       
-      - name: Build zip files for lambda
-        working-directory: python
-        run: |
-          mkdir deps
-          pip install -r test/requirements.txt -t ./deps
-          ls ./deps
-          zip -r deps.zip ./deps
-          ls
+      # - uses: actions/setup-python@v5
+      #   with:
+      #     python-version: '3.10' 
       
+      # - name: Build zip files for lambda
+      #   working-directory: python
+      #   run: |
+      #     mkdir deps
+      #     pip install -r test/requirements.txt -t ./deps
+      #     zip -r deps.zip ./deps
+        
