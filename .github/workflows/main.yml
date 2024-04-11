@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - feat/**
 
 jobs:
   job1:
@@ -12,10 +13,6 @@ jobs:
       contents: read
       id-token: write
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20.8.1
-      - run: yarn semantic-release --branches main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          echo "issue_id=$(echo "${{ github.event.ref }}" | grep -o -E "[a-zA-Z0-9,\.\_\-]+-[0-9]+" | tr '[:upper:]' '[:lower:]')" 
+          echo "issue_id=$(echo "${{ github.event.ref }}" | grep -o -E "[a-zA-Z0-9,\.\_\-]+-[0-9]+" | tr '[:upper:]' '[:lower:]')" >> $GITHUB_OUTPUT
