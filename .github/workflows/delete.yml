@@ -1,9 +1,7 @@
 name: main
 
 on:
-  push:
-    branches:
-      - main
+  - delete
 
 jobs:
   job1:
@@ -15,5 +13,3 @@ jobs:
 
       - run: |
           echo ${{github.event.ref}}
-      
-        
