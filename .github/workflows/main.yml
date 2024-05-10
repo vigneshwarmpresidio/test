@@ -19,22 +19,4 @@ jobs:
         if: always()
         with:
           webhook_url: ${{ secrets.MSTEAMS_WEBHOOK }}
-          raw: >-
-            {
-              "@type": "MessageCard",
-              "@context": "http://schema.org/extensions",
-              "summary": "Pipeline Failure",
-              "sections": [{
-                "activityTitle": "${{job.status}} on ${{ github.job }}!",
-                "facts": [{
-                  "name": "Triggered by:",
-                  "value": "${{ github.actor }}"
-                }]
-              }],
-              "markdown": true,
-              "potentialAction": [{
-                "@type": "OpenUri",
-                "name": "View Failed Run",
-                "targets": [{ "os": "default", "uri": "abc" }]
-              }]
-            }
+          overwrite: "{title: `Overwrote title in ${workflow_link}`}"
