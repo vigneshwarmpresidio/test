@@ -1,5 +1,8 @@
-1
-2
-b1
-
-jhgf
+trcli -y \
+--host https://vignes221b.testrail.io \
+--project "test" \
+--username vigneshwarm@presidio.com \
+--key Alohomora1@ \
+parse_junit \
+--title "Automated Tests Run" \
+-f ex.xml
