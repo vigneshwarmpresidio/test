@@ -34,7 +34,7 @@ jobs:
                       "value": "${{ github.actor }}"
                   }, {
                       "name": "Environment",
-                      "value": dev"
+                      "value": "dev"
                   }, {
                       "name": "Status",
                       "value": "${{job.status}}"
