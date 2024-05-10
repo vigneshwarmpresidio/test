@@ -7,7 +7,7 @@ on:
       - feat/**
 
 jobs:
-  job1:
+  E2E_TEST:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -28,7 +28,7 @@ jobs:
               "sections": [{
                   "activityTitle": "${{job.status}} on ${{github.job}}",
                   "activitySubtitle": "On ${{ github.repository }}",
-                  "activityImage": "https://adaptivecards.io/content/cats/3.png",
+                  "activityImage": "https://raw.githubusercontent.com/Skitionek/notify-microsoft-teams/master/icons/${{job.status}}.png",
                   "facts": [{
                       "name": "triggered by",
                       "value": "${{ github.actor }}"
