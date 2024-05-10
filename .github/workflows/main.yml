@@ -42,12 +42,13 @@ jobs:
                   "markdown": true
               }],
               "potentialAction": [ 
-              {
-                  "@type": "View",
-                  "name": "View Job",
+                {
+                  "@type": "OpenUri",
+                  "name": "Learn More",
                   "targets": [{
                       "os": "default",
-                      "uri": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+                      "uri": "https://learn.microsoft.com/outlook/actionable-messages"
                   }]
-              }]
+                } 
+              ]
             }
