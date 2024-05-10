@@ -25,13 +25,13 @@ jobs:
               "@context": "http://schema.org/extensions",
               "summary": "Pipeline Failure",
               "sections": [{
-                "activityTitle": "failure on x!",
+                "activityTitle": "${{job.status}} on ${{ github.job }}!",
                 "facts": [{
                   "name": "Triggered by:",
                   "value": "${{ github.actor }}"
                 }]
               }],
-                "markdown": true,
+              "markdown": true,
               "potentialAction": [{
                 "@type": "OpenUri",
                 "name": "View Failed Run",
