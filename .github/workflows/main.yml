@@ -13,7 +13,7 @@ jobs:
       contents: read
       id-token: write
     steps:
-      
+      - run: dwsf
       - name: Microsoft Teams Notification
         uses: skitionek/notify-microsoft-teams@master
         if: always()
