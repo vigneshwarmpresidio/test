@@ -30,13 +30,13 @@ jobs:
                   "activitySubtitle": "Repository: ${{ github.repository }}",
                   "activityImage": "https://raw.githubusercontent.com/Skitionek/notify-microsoft-teams/master/icons/${{job.status}}.png",
                   "facts": [{
-                      "name": "triggered by",
+                      "name": "Triggered by:",
                       "value": "${{ github.actor }}"
                   }, {
-                      "name": "Environment",
+                      "name": "Environment:",
                       "value": "dev"
                   }, {
-                      "name": "Status",
+                      "name": "Status:",
                       "value": "${{job.status}}"
                   }],
                   "markdown": true
