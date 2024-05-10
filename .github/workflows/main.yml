@@ -23,5 +23,18 @@ jobs:
             {
               "@type": "MessageCard",
               "@context": "http://schema.org/extensions",
-              "title": "No vars avaliable in here"
+              "summary": "Pipeline Failure",
+              "sections": [{
+                "activityTitle": "failure on x!",
+                "facts": [{
+                  "name": "Triggered by:",
+                  "value": "${{ github.actor }}"
+                }]
+              }],
+                "markdown": true,
+              "potentialAction": [{
+                "@type": "OpenUri",
+                "name": "View Failed Run",
+                "targets": [{ "os": "default", "uri": "abc" }]
+              }]
             }
