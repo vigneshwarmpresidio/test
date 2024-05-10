@@ -24,10 +24,10 @@ jobs:
               "@type": "MessageCard",
               "@context": "http://schema.org/extensions",
               "themeColor": "0076D7",
-              "summary": "${{job.status}} on ${{github.job}}",
+              "summary": "${{job.status}} running ${{github.job}} job",
               "sections": [{
-                  "activityTitle": "${{job.status}} on ${{github.job}}",
-                  "activitySubtitle": "On ${{ github.repository }}",
+                  "activityTitle": "${{job.status}} running ${{github.job}} job",
+                  "activitySubtitle": "Repository: ${{ github.repository }}",
                   "activityImage": "https://raw.githubusercontent.com/Skitionek/notify-microsoft-teams/master/icons/${{job.status}}.png",
                   "facts": [{
                       "name": "triggered by",
@@ -41,7 +41,15 @@ jobs:
                   }],
                   "markdown": true
               }],
-              "potentialAction": [ 
+              "potentialAction": [
+                {
+                  "@type": "OpenUri",
+                  "name": "View Repository",
+                  "targets": [{
+                      "os": "default",
+                      "uri": "${{ github.server_url }}/${{ github.repository }}"
+                  }]
+                }, 
                 {
                   "@type": "OpenUri",
                   "name": "View Job",
