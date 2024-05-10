@@ -44,10 +44,10 @@ jobs:
               "potentialAction": [ 
                 {
                   "@type": "OpenUri",
-                  "name": "Learn More",
+                  "name": "View Job",
                   "targets": [{
                       "os": "default",
-                      "uri": "https://learn.microsoft.com/outlook/actionable-messages"
+                      "uri": "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
                   }]
                 } 
               ]
