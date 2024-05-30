@@ -20,3 +20,5 @@ jobs:
           ref: ${{inputs.ref}}
           
       - run: echo hi
+
+      - run: cat main.txt
