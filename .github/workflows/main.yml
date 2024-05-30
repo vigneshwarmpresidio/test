@@ -13,9 +13,7 @@ jobs:
       id-token: write
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 20.8.1
-      - run: yarn semantic-release --branches main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - run: |
+          echo 1st
+      - run: |
+          cat main.txt
