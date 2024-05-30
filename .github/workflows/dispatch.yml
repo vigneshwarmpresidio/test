@@ -1,0 +1,20 @@
+name: environment rollback deployment
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+          description: 'Environment to workflow against'
+          type: environment
+          required: true
+      ref:
+        description: 'commit sha or git tag'
+        type: string
+    
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: echo hi
+      - run: cat main.txt
