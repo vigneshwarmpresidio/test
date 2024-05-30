@@ -22,3 +22,5 @@ jobs:
       - run: echo hi
 
       - run: cat main.txt
+
+      - run: ${{secrets.TEST}}
